@@ -16,7 +16,7 @@ export const departments: Department[] = [
         description: "Focusing on modern frontend architectures, full-stack frameworks, reactive interfaces, and distributed web APIs.",
         academicLead: "Prof. Elena Vance",
         coreLab: "Turing Hall 408",
-        curriculumCycle: "2024–2025 Revised",
+        curriculumCycle: "2024-2025 Revised",
       },
       {
         id: "ai-systems",
