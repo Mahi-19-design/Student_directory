@@ -1,4 +1,3 @@
-// app/students/page.tsx
 "use client";
 
 import { useState } from "react";
@@ -9,7 +8,6 @@ export default function StudentsPage() {
     const [search, setSearch] = useState("");
     const [selectedDept, setSelectedDept] = useState("all");
 
-    // Filter students based on search query and selected department
     const filteredStudents = students.filter((student) => {
         const matchesSearch =
             student.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -23,19 +21,15 @@ export default function StudentsPage() {
 
     return (
         <div className="space-y-6">
-            {/* Page Title */}
+         
             <div>
                 <h1 className="text-2xl font-bold text-slate-900">Students</h1>
                 <p className="text-sm text-slate-500">Browse students and view their profiles.</p>
             </div>
 
-            {/* Filter Bar */}
             <div className="bg-white border border-slate-200 rounded-lg p-3 flex flex-col sm:flex-row gap-4 items-center justify-between">
-                {/* Search Input */}
                 <div className="relative w-full sm:w-80">
-                    <span className="absolute inset-y-0 left-3 flex items-center text-slate-400 text-sm">
-                        🔍
-                    </span>
+                    
                     <input
                         type="text"
                         placeholder="Search students"
@@ -45,7 +39,6 @@ export default function StudentsPage() {
                     />
                 </div>
 
-                {/* Department Dropdown */}
                 <div className="flex items-center gap-2 text-sm text-slate-600 w-full sm:w-auto">
                     <span>Department:</span>
                     <select
@@ -63,7 +56,6 @@ export default function StudentsPage() {
                 </div>
             </div>
 
-            {/* Students Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {filteredStudents.map((student) => (
                     <div
@@ -81,10 +73,9 @@ export default function StudentsPage() {
                                 </span>
                             </div>
 
-                            {/* Name */}
                             <h2 className="text-base font-semibold text-slate-900">{student.name}</h2>
 
-                            {/* Department pill & Year */}
+                        
                             <div className="flex items-center gap-2 text-xs">
                                 <span className="text-blue-700 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded font-medium">
                                     {student.departmentName}
@@ -93,25 +84,14 @@ export default function StudentsPage() {
                             </div>
                         </div>
 
-                        {/* Profile Link */}
-                        <div className="pt-4 mt-4 border-t border-slate-100">
-                            <Link
-                                href={`/students/${student.id}`}
-                                className="text-xs font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1"
-                            >
-                                View profile →
-                            </Link>
-                        </div>
+                
                     </div>
                 ))}
             </div>
 
-            {/* Pagination Footer */}
+          
             <div className="pt-4 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
-                <p>
-                    Showing <span className="font-medium text-slate-800">{filteredStudents.length}</span> of{" "}
-                    <span className="font-medium text-slate-800">{students.length}</span> students
-                </p>
+                
                 <div className="flex gap-2">
                     <button
                         disabled
