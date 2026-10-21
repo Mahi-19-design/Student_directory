@@ -1,4 +1,3 @@
-// app/departments/[dept]/page.tsx
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { departments, students } from "@/data/directoryData";
@@ -25,7 +24,7 @@ export default async function DepartmentDetailPage({ params }: PageProps) {
 
     return (
         <div className="space-y-6">
-            {/* Breadcrumb */}
+   
             <div className="text-xs text-slate-400 flex items-center gap-2">
                 <Link href="/departments" className="hover:text-slate-700">
                     Departments
@@ -34,7 +33,7 @@ export default async function DepartmentDetailPage({ params }: PageProps) {
                 <span className="text-slate-900 font-medium">{department.name}</span>
             </div>
 
-            {/* Navigation Return Links */}
+         
             <div className="flex items-center justify-between text-xs">
                 <Link
                     href="/departments"
@@ -50,7 +49,7 @@ export default async function DepartmentDetailPage({ params }: PageProps) {
                 </Link>
             </div>
 
-            {/* Department Hero Card */}
+         
             <div className="bg-white border border-slate-200 rounded-lg p-8 space-y-4 shadow-sm">
                 <div className="flex items-center gap-3">
                     <span className="w-9 h-9 rounded bg-blue-50 text-blue-600 flex items-center justify-center text-sm font-bold border border-blue-100">
@@ -60,13 +59,11 @@ export default async function DepartmentDetailPage({ params }: PageProps) {
                 </div>
                 <p className="text-sm text-slate-600 leading-relaxed">{department.description}</p>
                 <div className="flex items-center gap-4 text-xs text-slate-500 pt-2 border-t border-slate-100">
-                    <span>🏛 {department.specializationsCount} Specializations</span>
-                    <span>•</span>
-                    <span>👥 {department.enrolledCount} Enrolled Students</span>
+                    <span>{department.specializationsCount} Specializations</span>
+                    
                 </div>
             </div>
 
-            {/* Specializations List */}
             <div className="space-y-3">
                 <h2 className="text-base font-bold text-slate-900">Academic Specializations</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -91,7 +88,6 @@ export default async function DepartmentDetailPage({ params }: PageProps) {
                 </div>
             </div>
 
-            {/* Enrolled Students in this Department */}
             <div className="space-y-3 pt-4">
                 <h2 className="text-base font-bold text-slate-900">
                     Students in {department.name} ({deptStudents.length})
