@@ -1,4 +1,3 @@
-// app/students/[id]/page.tsx
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { students } from "@/data/directoryData";
@@ -17,14 +16,12 @@ export default async function StudentDetailPage({ params }: PageProps) {
     const { id } = await params;
     const student = students.find((s) => s.id.toLowerCase() === id.toLowerCase());
 
-    // If no matching student, trigger the custom 404 page!
     if (!student) {
         notFound();
     }
 
     return (
         <div className="space-y-6">
-            {/* Breadcrumbs & Back Link */}
             <div className="space-y-2">
                 <div className="text-xs text-slate-400 flex items-center gap-2">
                     <Link href="/students" className="hover:text-slate-700">
@@ -43,9 +40,7 @@ export default async function StudentDetailPage({ params }: PageProps) {
                 </div>
             </div>
 
-            {/* Main Profile Card */}
             <div className="bg-white border border-slate-200 rounded-lg p-8 space-y-6 shadow-sm">
-                {/* Header: Avatar, Name, Badges */}
                 <div className="flex items-center gap-4">
                     <div className="w-16 h-16 rounded-xl bg-blue-100 text-blue-600 font-bold text-xl flex items-center justify-center">
                         {student.initials}
@@ -63,7 +58,6 @@ export default async function StudentDetailPage({ params }: PageProps) {
                     </div>
                 </div>
 
-                {/* 4 Key Info Fields Grid */}
                 <div className="grid grid-cols-2 gap-y-4 gap-x-8 pt-4 border-t border-slate-100">
                     <div>
                         <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Department</p>
@@ -88,13 +82,13 @@ export default async function StudentDetailPage({ params }: PageProps) {
                     </div>
                 </div>
 
-                {/* About Section */}
+           
                 <div className="pt-4 border-t border-slate-100 space-y-2">
                     <h2 className="text-sm font-bold text-slate-900">About</h2>
                     <p className="text-sm text-slate-600 leading-relaxed">{student.about}</p>
                 </div>
 
-                {/* Academic Details & Subjects */}
+            
                 <div className="pt-4 border-t border-slate-100 space-y-4">
                     <h2 className="text-sm font-bold text-slate-900">Academic Details</h2>
 
@@ -109,7 +103,7 @@ export default async function StudentDetailPage({ params }: PageProps) {
                         </div>
                     </div>
 
-                    {/* Subjects Table */}
+               
                     <div className="space-y-2 pt-2">
                         <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">
                             Enrolled Subjects
@@ -132,11 +126,6 @@ export default async function StudentDetailPage({ params }: PageProps) {
                 </div>
             </div>
 
-            {/* System Record Footer */}
-            <div className="flex justify-between items-center text-xs text-slate-400 px-1">
-                <span>System Record ID: {student.systemRecordId}</span>
-                <span>Last validated: Oct 24, 2024</span>
-            </div>
         </div>
     );
 }
