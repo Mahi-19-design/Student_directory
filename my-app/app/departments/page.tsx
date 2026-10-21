@@ -1,11 +1,11 @@
-// app/departments/page.tsx
+
 import Link from "next/link";
 import { departments } from "@/data/directoryData";
 
 export default function DepartmentsPage() {
     return (
         <div className="space-y-6">
-            {/* Header */}
+         
             <div className="flex items-center justify-between">
                 <div>
                     <h1 className="text-2xl font-bold text-slate-900">Departments</h1>
@@ -19,7 +19,7 @@ export default function DepartmentsPage() {
                 </span>
             </div>
 
-            {/* Departments List Cards */}
+            
             <div className="bg-white border border-slate-200 rounded-lg divide-y divide-slate-200">
                 {departments.map((dept) => (
                     <div key={dept.id} className="p-6 flex items-center justify-between">
@@ -32,9 +32,7 @@ export default function DepartmentsPage() {
                             </div>
                             <p className="text-sm text-slate-600">{dept.description}</p>
                             <div className="flex items-center gap-4 text-xs text-slate-500 pt-1">
-                                <span>🏛 {dept.specializationsCount} Specializations</span>
-                                <span>•</span>
-                                <span>👥 {dept.enrolledCount} Enrolled Students</span>
+                                <span> {dept.specializationsCount} Specializations</span>
                             </div>
                         </div>
 
@@ -48,11 +46,7 @@ export default function DepartmentsPage() {
                 ))}
             </div>
 
-            {/* Footer info */}
-            <div className="flex items-center justify-between text-xs text-slate-400 pt-4 border-t border-slate-200">
-                <span>Curriculum Year 2024–2025</span>
-                <span>Updated daily via Campus Records API</span>
-            </div>
+       
         </div>
     );
 }
