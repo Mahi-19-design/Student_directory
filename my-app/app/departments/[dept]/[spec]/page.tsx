@@ -1,4 +1,3 @@
-// app/departments/[dept]/[spec]/page.tsx
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { departments, students } from "@/data/directoryData";
@@ -27,14 +26,13 @@ export default async function SpecializationPage({ params }: PageProps) {
         notFound();
     }
 
-    // Find students in this track
+
     const trackStudents = students.filter(
         (s) => s.departmentId === dept && s.specializationId === spec
     );
 
     return (
         <div className="space-y-6">
-            {/* Breadcrumb Bar */}
             <div className="text-xs text-slate-400 flex items-center gap-2">
                 <Link href="/departments" className="hover:text-slate-700">
                     Departments
@@ -47,7 +45,6 @@ export default async function SpecializationPage({ params }: PageProps) {
                 <span className="text-slate-900 font-medium">{specialization.name}</span>
             </div>
 
-            {/* Navigation Return Links */}
             <div className="flex items-center justify-between text-xs">
                 <Link
                     href={`/departments/${dept}`}
@@ -63,7 +60,6 @@ export default async function SpecializationPage({ params }: PageProps) {
                 </Link>
             </div>
 
-            {/* Specialization Hero Card */}
             <div className="bg-white border border-slate-200 rounded-lg p-8 space-y-6 shadow-sm">
                 <div className="flex items-start justify-between">
                     <div className="space-y-2 max-w-2xl">
@@ -88,7 +84,6 @@ export default async function SpecializationPage({ params }: PageProps) {
                     </div>
                 </div>
 
-                {/* 4 Info Columns */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-slate-100">
                     <div>
                         <p className="text-xs font-medium text-slate-400">Academic Lead</p>
@@ -115,7 +110,6 @@ export default async function SpecializationPage({ params }: PageProps) {
                 </div>
             </div>
 
-            {/* Students in Specialization Section */}
             <div className="space-y-4">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
@@ -131,7 +125,6 @@ export default async function SpecializationPage({ params }: PageProps) {
                     </span>
                 </div>
 
-                {/* 2-Column Student Cards Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {trackStudents.map((student) => (
                         <div
@@ -171,13 +164,9 @@ export default async function SpecializationPage({ params }: PageProps) {
                 </div>
             </div>
 
-            {/* Footer */}
             <div className="flex items-center justify-between text-xs text-slate-400 pt-6 border-t border-slate-200">
-                <span>Campus Directory © Academic Informatics Core</span>
-                <span className="flex items-center gap-1.5 font-mono">
-                    Path: /departments/{dept}/{spec}
-                    <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-                </span>
+                <span>Campus Directory  Academic Informatics Core</span>
+              
             </div>
         </div>
     );
